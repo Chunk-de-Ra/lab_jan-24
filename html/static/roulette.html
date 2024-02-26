@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script>
+        let roulWheel = ['0','34','10','21','28','4','18','9','27','22','12','3','17','20','11','33','2','10','32','00','15','8','25','1','31','20','14','30','7','24','29','35','6','13','23','19','5','36'];
+
+        function getRandInt(max) {
+            return Math.floor(Math.random()*max);
+        }
+        let roulIndex = getRandInt(38);
+        let roulNum = roulWheel[roulIndex];
+
+        let roulRedBlack = null;
+        if (roulIndex%2 == 0) {
+            roulRedBlack = "Rouge";
+        }
+        else {
+            roulRedBlack = "Noir";
+        }
+        
+        let roulEvenOdd = null;
+        if (roulNum%2 == 0) {
+            roulEvenOdd = "Pair";
+        }
+        else {
+            roulEvenOdd = "Impair";
+        }
+
+        let roulPassFail = null;
+        if (roulNum == '0' || (roulNum != '00' && parseInt(roulNum) <= 18)) {
+            roulPassFail = "Manque";
+        }
+        else {
+            roulPassFail = "Passe";
+        }
+
+
+        document.body.innerHTML = "<h1>Roulette number is "+roulNum+"</h1>"+
+                "<h3>"+roulRedBlack+"</h3>"+
+                "<h3>"+roulEvenOdd+"</h3>"+
+                "<h3>"+roulPassFail+"</h3";
+    </script>
+</body>
+<script src="roulette.js"></script>
+</html>
